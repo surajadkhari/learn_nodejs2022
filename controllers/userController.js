@@ -1,8 +1,10 @@
+const { Sequelize } = require("../models")
 const model=require("../models")
 
 //getallUsers
 const getAll=async(req,res)=>{
-const user=await model.User.findAll({})
+const user=await model.User.findAll({
+})
 res.send(user)
 }
 
@@ -10,7 +12,7 @@ res.send(user)
 const getbyId=async(req,res)=>{
         const user=await model.User.findOne({
             where : {id : req.params.id},
-            // attributes : ['id', 'full_name', 'age']
+            attributes : ['id', 'full_name',]
         })
        if(!user){
            res.status(400).json({
