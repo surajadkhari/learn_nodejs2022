@@ -16,6 +16,12 @@ module.exports = (sequelize, DataTypes) => {
   User.init({
     first_name: DataTypes.STRING,
     last_name: DataTypes.STRING,
+    full_name  : {
+      type: DataTypes.VIRTUAL,
+      get(){
+        return `${this.first_name}${this.last_name}`;
+      }
+    },
     age: DataTypes.INTEGER
   }, {
     sequelize,
