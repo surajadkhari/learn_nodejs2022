@@ -1,28 +1,12 @@
 const express=require("express")
 const app=express()
 const port=3000
-
-const bodyParser = require("body-parser")
-app.use(bodyParser.json());
-
-
-const userRoute=require("./routes/userRoute")
-
-
-const studentRoute=require("./routes/studentRoute")
+const h=require("./controllers/studentController")
 
 
 
 
-
-app.use("/api",studentRoute)
-
-
-
-
-
-
-
+app.get("/",h.getStudents)
 
 
 app.listen(port,()=>{
