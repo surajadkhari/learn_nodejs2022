@@ -4,6 +4,7 @@ const studentController=require("../controllers/studentController")
 
 
 route.get("/students/all",studentController.getStudents)
+route.post("/students/create",studentController.creatUser)
 
 
 module.exports=route
