@@ -17,6 +17,12 @@ module.exports = (sequelize, DataTypes) => {
     first_name: DataTypes.STRING,
     last_name: DataTypes.STRING,
     class: DataTypes.INTEGER,
+    full_name:{
+      type:DataTypes.VIRTUAL,
+      get(){
+        return `${this.first_name} ${this.last_name}`
+      }
+    }
   }, {
     sequelize,
     modelName: 'Students',
