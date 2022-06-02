@@ -18,7 +18,7 @@ const creatUser=async(req,res)=>{
             last_name:req.body.last_name,
             class:req.body.class
         })
-        res.status.json({
+        res.status(201).json({
             message:"user created succesfully",
             data:result
         })
