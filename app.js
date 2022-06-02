@@ -1,12 +1,12 @@
 const express=require("express")
 const app=express()
 const port=3000
-const h=require("./controllers/studentController")
+const studentRoute=require("./routes/routeController")
 
 
 
 
-app.get("/",h.getStudents)
+app.use("/api",studentRoute)
 
 
 app.listen(port,()=>{

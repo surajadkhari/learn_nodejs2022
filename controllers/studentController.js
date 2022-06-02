@@ -13,6 +13,5 @@ try {
 
 module.exports={
     getStudents,
-
 }
 
