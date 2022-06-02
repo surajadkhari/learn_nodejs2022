@@ -1,7 +1,7 @@
 const model=require("../models")
 
 //Get All users
-const getStudents=async(req,res)=>{
+const getUsers=async(req,res)=>{
 try {
     const result=  await model.Students.findAll({})  
     res.send(result)
@@ -9,6 +9,28 @@ try {
     res.send(error)
 }
 }
+
+//getUser by ID
+const getUserById=async(req,res)=>{
+    
+        const result=await model.Students.findOne({
+            where:{
+                id:req.params.id
+            }
+        })
+        if(!result){
+            res.status(400).json({
+                message:"User does'nt exit",
+                
+            })
+        }else{
+            res.send(result)
+        }
+        
+
+
+}
+
 
 //create user
 const creatUser=async(req,res)=>{
@@ -29,7 +51,8 @@ const creatUser=async(req,res)=>{
 }
 
 module.exports={
-    getStudents,
-    creatUser
+    getUsers,
+    creatUser,
+    getUserById
 }
 
