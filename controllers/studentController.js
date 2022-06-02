@@ -50,9 +50,27 @@ const creatUser=async(req,res)=>{
 }
 }
 
+//Delete User
+const deleteUser=async(req,res)=>{
+    try {
+        const result= await model.Students.destroy({
+            where:{id:req.params.id}
+        })
+        res.json({
+            message:"user has been deleted",
+            data:result
+        })
+    } catch (error) {
+        console.log(error)
+        
+    }
+
+}
+
 module.exports={
     getUsers,
     creatUser,
-    getUserById
+    getUserById,
+    deleteUser
 }
 
