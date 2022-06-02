@@ -10,8 +10,26 @@ try {
 }
 }
 
+//create user
+const creatUser=async(req,res)=>{
+    try {
+        const result=await model.Students.create({
+            first_name:req.body.first_name,
+            last_name:req.body.last_name,
+            class:req.body.class
+        })
+        res.status.json({
+            message:"user created succesfully",
+            data:result
+        })
+
+    } catch (error) {
+        console.log(error)
+}
+}
 
 module.exports={
     getStudents,
+    creatUser
 }
 
